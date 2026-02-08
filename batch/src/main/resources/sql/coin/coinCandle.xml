@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.batch.common.mapper.coin.CoinMapper">
+
+    <select id="selectCoinCandleByMarket" resultType="CoinCandle">
+        SELECT
+            *
+        FROM coin_candle
+        WHERE market = #{market}
+    </select>
+
+    <insert id="insertCoinCandle" parameterType="CoinCandle">
+        INSERT INTO `coin_candle` (
+            `market`,
+            `candle_date_time_kst`,
+            `opening_price`,
+            `trade_price`,
+            `unit`
+        ) VALUES (
+            #{market},
+            #{candleDateTimeKst},
+            #{openingPrice},
+            #{tradePrice},
+            #{unit}
+        ) ON DUPLICATE KEY UPDATE
+            `candle_date_time_kst` = #{candleDateTimeKst}
+            , `opening_price` = #{openingPrice}
+            , `trade_price` = #{tradePrice}
+            , `unit` = #{unit}
+    </insert>
+
+</mapper>

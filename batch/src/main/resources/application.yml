@@ -1,0 +1,24 @@
+spring:
+  batch:
+    job:
+      enabled: false
+  datasource:
+    batch:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: ${BATCH_DB_URL:jdbc:mysql://localhost:3306/batch_db}
+      username: ${DB_USER:batch_user}
+      password: ${DB_PASS:batch_pw}
+    coin:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: ${COIN_DB_URL:jdbc:mysql://localhost:3306/coin_db}
+      username: ${DB_USER:coin_user}
+      password: ${DB_PASS:coin_pw}
+app:
+  slack:
+    webhook: ${WEB_HOOKS_URL}
+  upbit:
+    url: "https://api.upbit.com"
+    candles-path: "/v1/candles/minutes/{unit}"
+
+cron:
+  coinCandlesJob: 1 0 0/1 * * *
