@@ -1,4 +1,4 @@
-Upbit 분(Minute) 캔들 조회 API를 활용한 알림/후처리 Step을 실행하는 Spring batch
+Upbit 분(Minute) 캔들 조회 API를 활용한 알림/후처리 Step(매시간 1초)을 실행하는 Spring batch
 
 ---
 ## Database
